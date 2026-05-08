@@ -2530,23 +2530,6 @@ MySQL
 
 ---
 
-## 🧾 Checklist Kesesuaian dengan Soal
-
-| Kebutuhan | Status |
-|---|---|
-| Program berbasis Java CLI | Terpenuhi |
-| Terhubung ke MySQL | Terpenuhi |
-| Memiliki fitur tambah data | Terpenuhi |
-| Memiliki fitur lihat data | Terpenuhi |
-| Memiliki fitur ubah data | Terpenuhi |
-| Memiliki fitur hapus data | Terpenuhi |
-| Menggunakan abstract class | Terpenuhi |
-| Menggunakan inheritance | Terpenuhi |
-| Menggunakan encapsulation | Terpenuhi |
-| Menggunakan interface | Terpenuhi |
-| Menggunakan custom exception | Terpenuhi |
-| Validasi aturan bisnis di setter | Terpenuhi |
-| Kode dipisah berdasarkan tanggung jawab | Terpenuhi |
 
 > [!IMPORTANT]
 > Inti rancangan program ini adalah membuat objek tidak bisa berisi data yang salah sejak awal. Karena itu, validasi ditempatkan di setter dan constructor, bukan hanya sebelum masuk database.
