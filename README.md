@@ -11,7 +11,8 @@ Dokumen ini menjelaskan struktur, alur kerja, dan konsep OOP pada program pengel
 ---
 
 > [!NOTE]
-> Dokumen ini disusun sebagai laporan penjelasan kode. Fokus utamanya adalah memahami **mengapa setiap class dibuat**, **bagaimana data mengalir**, dan **bagaimana validasi serta CRUD bekerja** jadi jangan berpikir bahwa stuktur programnya harus seperti ini untuk mencapai nilai sempurna karena pada dasarnya ini hanya sebagai **contoh** struktur programnya seperti ini karena memang bawaan dari IDE yang dipakai saat program dibuat **semua kode program ada di dalam src**.
+> Dokumen ini disusun sebagai laporan penjelasan kode. Fokus utamanya adalah memahami **mengapa setiap class dibuat**, **bagaimana data mengalir**, dan **bagaimana validasi serta CRUD bekerja** jadi jangan berpikir bahwa stuktur programnya harus seperti ini untuk mencapai nilai sempurna karena pada dasarnya ini hanya sebagai **contoh** struktur programnya seperti ini karena memang bawaan dari IDE yang dipakai saat program dibuat. **semua kode program ada di dalam src**.
+
 
 ## 📌 Ringkasan Cepat
 
