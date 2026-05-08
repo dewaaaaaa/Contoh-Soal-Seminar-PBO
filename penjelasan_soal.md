@@ -2457,5 +2457,3 @@ KoneksiDatabase
    ↓
 MySQL
 ```
-
-Dengan rancangan seperti ini, program tetap sederhana untuk pemula, tetapi konsep OOP yang diminta dalam soal sudah terlihat jelas dan diterapkan secara terstruktur.
