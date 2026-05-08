@@ -1,6 +1,75 @@
-# Penjelasan Detail Program Sistem Pengelolaan Koleksi Perpustakaan
+<div align="center">
 
-## 1. Gambaran Umum Program
+# 📚 Penjelasan Detail Program Sistem Pengelolaan Koleksi Perpustakaan
+
+**Java CLI • MySQL • CRUD • OOP • Custom Exception**
+
+Dokumen ini menjelaskan struktur, alur kerja, dan konsep OOP pada program pengelolaan koleksi perpustakaan secara bertahap dan mudah dipahami.
+
+</div>
+
+---
+
+> [!NOTE]
+> Dokumen ini disusun sebagai laporan penjelasan kode. Fokus utamanya adalah memahami **mengapa setiap class dibuat**, **bagaimana data mengalir**, dan **bagaimana validasi serta CRUD bekerja** jadi jangan berpikir bahwa stuktur programnya harus seperti ini untuk mencapai nilai sempurna karena pada dasarnya ini hanya sebagai **contoh** struktur programnya seperti ini karena memang bawaan dari IDE yang dipakai saat program dibuat **semua kode program ada di dalam src**.
+
+## 📌 Ringkasan Cepat
+
+| Aspek | Keterangan |
+|---|---|
+| Jenis aplikasi | Java CLI |
+| Database | MySQL |
+| Fitur utama | Tambah, lihat, ubah, hapus koleksi |
+| Jenis koleksi | Buku dan Majalah |
+| Konsep OOP | Abstract class, inheritance, encapsulation, polymorphism, interface |
+| Validasi data | Diterapkan melalui setter |
+| Penanganan error | Menggunakan custom exception |
+
+## 🧭 Daftar Isi
+
+1. Gambaran umum program  
+2. Struktur file program  
+3. Database MySQL  
+4. File exception  
+5. Koneksi database  
+6. Abstract class `Koleksi`  
+7. Class `Buku`  
+8. Class `Majalah`  
+9. Interface `CrudService`  
+10. Class `KoleksiService`  
+11. Method CRUD di service  
+12. Class `App`  
+13. Alur tambah, lihat, ubah, dan hapus  
+14. Penerapan konsep OOP  
+15. Kesimpulan  
+
+## 🗺️ Peta Alur Sistem
+
+```mermaid
+flowchart TD
+    A[Pengguna] --> B[App.java]
+    B --> C{Pilih Menu}
+    C -->|Tambah/Ubah| D[Input Data]
+    D --> E[Objek Buku atau Majalah]
+    E --> F[Validasi Setter]
+    F --> G[KoleksiService]
+    C -->|Lihat/Hapus| G
+    G --> H[KoneksiDatabase]
+    H --> I[(MySQL)]
+    I --> G
+    G --> B
+```
+
+<details>
+<summary><strong>Tips membaca laporan ini</strong></summary>
+
+Baca bagian ini secara berurutan dari atas ke bawah. Mulailah dari gambaran umum, lalu pahami model OOP (`Koleksi`, `Buku`, `Majalah`), setelah itu masuk ke bagian database dan service. Bagian `App.java` paling mudah dipahami setelah alur CRUD sudah jelas.
+
+</details>
+
+---
+
+## 🧭 1. Gambaran Umum Program
 
 Program ini adalah sistem sederhana berbasis **Java CLI** dan **MySQL** untuk mengelola data koleksi perpustakaan.
 
@@ -46,7 +115,7 @@ Database MySQL
 
 ---
 
-## 2. Struktur File Program
+## 🗂️ 2. Struktur File Program
 
 Program dibagi menjadi beberapa file agar setiap bagian memiliki tanggung jawab masing-masing.
 
@@ -80,7 +149,7 @@ Pembagian file ini membuat program lebih rapi. Misalnya, `App.java` hanya fokus 
 
 ---
 
-## 3. Database MySQL
+## 🗄️ 3. Database MySQL
 
 ### 3.1 Membuat Database
 
@@ -144,7 +213,7 @@ Jika data adalah majalah, maka kolom `edisi`, `bulan_terbit`, dan `kategori` aka
 
 ---
 
-## 4. File Exception
+## ⚠️ 4. File Exception
 
 Program memakai tiga custom exception agar pesan kesalahan lebih jelas dan sesuai dengan kebutuhan soal.
 
@@ -240,7 +309,7 @@ Dengan exception ini, pesan error menjadi lebih jelas bagi pengguna program.
 
 ---
 
-## 5. File `KoneksiDatabase.java`
+## 🔌 5. File `KoneksiDatabase.java`
 
 File ini bertugas menghubungkan program Java dengan database MySQL.
 
@@ -380,7 +449,7 @@ Contoh penyebabnya:
 
 ---
 
-## 6. File `Koleksi.java`
+## 🏛️ 6. File `Koleksi.java`
 
 File ini adalah class induk untuk semua jenis koleksi.
 
@@ -631,7 +700,7 @@ return "MAJALAH";
 
 ---
 
-## 7. File `Buku.java`
+## 📘 7. File `Buku.java`
 
 File ini merepresentasikan koleksi berjenis buku.
 
@@ -887,7 +956,7 @@ Data khusus buku ditampilkan dari atribut:
 
 ---
 
-## 8. File `Majalah.java`
+## 📰 8. File `Majalah.java`
 
 File ini merepresentasikan koleksi berjenis majalah.
 
@@ -1121,7 +1190,7 @@ Data khusus majalah ditampilkan dari atribut:
 
 ---
 
-## 9. File `CrudService.java`
+## 📐 9. File `CrudService.java`
 
 File ini adalah interface untuk rancangan umum CRUD.
 
@@ -1205,7 +1274,7 @@ Sebelum data dihapus, program harus memastikan data tersebut tersedia di databas
 
 ---
 
-## 10. File `KoleksiService.java`
+## 🛠️ 10. File `KoleksiService.java`
 
 File ini adalah bagian yang menangani proses CRUD ke database.
 
@@ -1248,7 +1317,7 @@ Artinya, class ini wajib membuat method:
 
 ---
 
-## 11. Method `tambah()`
+## ➕ 11. Method `tambah()`
 
 ### 11.1 Query INSERT
 
@@ -1332,7 +1401,7 @@ Jika terjadi kesalahan saat menambah data, error SQL akan ditangkap dan diubah m
 
 ---
 
-## 12. Method `tampilkan()`
+## 📖 12. Method `tampilkan()`
 
 ### 12.1 Query SELECT
 
@@ -1427,7 +1496,7 @@ Contohnya, data di database memiliki judul kosong atau jenis koleksi tidak valid
 
 ---
 
-## 13. Method `ubah()`
+## ✏️ 13. Method `ubah()`
 
 ### 13.1 Mengecek Data Tersedia
 
@@ -1491,7 +1560,7 @@ Jika berhasil, data lama di database akan diganti dengan data baru.
 
 ---
 
-## 14. Method `hapus()`
+## 🗑️ 14. Method `hapus()`
 
 ### 14.1 Mengecek Data Tersedia
 
@@ -1534,7 +1603,7 @@ ps.executeUpdate();
 
 ---
 
-## 15. Method `koleksiAda()`
+## 🔎 15. Method `koleksiAda()`
 
 ### 15.1 Query Pengecekan
 
@@ -1583,7 +1652,7 @@ Method mengembalikan:
 
 ---
 
-## 16. Method `isiPreparedStatement()`
+## 🧩 16. Method `isiPreparedStatement()`
 
 Method ini adalah jembatan antara objek Java dan tabel database.
 
@@ -1687,7 +1756,7 @@ Dengan cara ini, satu tabel bisa menyimpan dua jenis koleksi.
 
 ---
 
-## 17. Method `buatKoleksiDariDatabase()`
+## 🔁 17. Method `buatKoleksiDariDatabase()`
 
 Method ini mengubah data dari database menjadi objek Java.
 
@@ -1777,7 +1846,7 @@ Program melempar `DataKoleksiTidakValidException`.
 
 ---
 
-## 18. File `App.java`
+## ⌨️ 18. File `App.java`
 
 File ini adalah pusat interaksi pengguna dengan program.
 
@@ -1808,7 +1877,7 @@ Keduanya dibuat `static` agar dapat digunakan langsung oleh method static di dal
 
 ---
 
-## 19. Method `main()`
+## 🚪 19. Method `main()`
 
 ### 19.1 Deklarasi Pilihan
 
@@ -1875,7 +1944,7 @@ Jika pengguna memilih `5`, perulangan berhenti dan program selesai.
 
 ---
 
-## 20. Method `tampilkanMenu()`
+## 📋 20. Method `tampilkanMenu()`
 
 ```java
 static void tampilkanMenu() {
@@ -1895,7 +1964,7 @@ Menu ini menjadi tampilan utama yang dilihat pengguna saat program berjalan.
 
 ---
 
-## 21. Method `tambahKoleksi()`
+## ➕ 21. Method `tambahKoleksi()`
 
 ```java
 static void tambahKoleksi() {
@@ -1927,7 +1996,7 @@ Penjelasan alur:
 
 ---
 
-## 22. Method `lihatKoleksi()`
+## 👀 22. Method `lihatKoleksi()`
 
 ```java
 static void lihatKoleksi() {
@@ -1955,7 +2024,7 @@ Alurnya:
 
 ---
 
-## 23. Method `ubahKoleksi()`
+## ✏️ 23. Method `ubahKoleksi()`
 
 ```java
 static void ubahKoleksi() {
@@ -1998,7 +2067,7 @@ Penjelasan alur:
 
 ---
 
-## 24. Method `hapusKoleksi()`
+## 🗑️ 24. Method `hapusKoleksi()`
 
 ```java
 static void hapusKoleksi() {
@@ -2028,7 +2097,7 @@ Penjelasan alur:
 
 ---
 
-## 25. Method `inputKoleksi()`
+## ⌨️ 25. Method `inputKoleksi()`
 
 Method ini digunakan untuk menerima input data koleksi dari pengguna.
 
@@ -2155,7 +2224,7 @@ Program melempar `DataKoleksiTidakValidException`.
 
 ---
 
-## 26. Method `inputInt()`
+## 🔢 26. Method `inputInt()`
 
 ```java
 static int inputInt(String pesan) {
@@ -2185,7 +2254,7 @@ Method ini membuat program lebih aman karena tidak langsung error ketika penggun
 
 ---
 
-## 27. Alur Tambah Koleksi
+## 🟢 27. Alur Tambah Koleksi
 
 Alur tambah koleksi berjalan sebagai berikut:
 
@@ -2206,7 +2275,7 @@ Alur tambah koleksi berjalan sebagai berikut:
 
 ---
 
-## 28. Alur Lihat Koleksi
+## 🔵 28. Alur Lihat Koleksi
 
 Alur melihat koleksi berjalan sebagai berikut:
 
@@ -2223,7 +2292,7 @@ Alur melihat koleksi berjalan sebagai berikut:
 
 ---
 
-## 29. Alur Ubah Koleksi
+## 🟡 29. Alur Ubah Koleksi
 
 Alur mengubah koleksi berjalan sebagai berikut:
 
@@ -2242,7 +2311,7 @@ Alur mengubah koleksi berjalan sebagai berikut:
 
 ---
 
-## 30. Alur Hapus Koleksi
+## 🔴 30. Alur Hapus Koleksi
 
 Alur menghapus koleksi berjalan sebagai berikut:
 
@@ -2257,7 +2326,7 @@ Alur menghapus koleksi berjalan sebagai berikut:
 
 ---
 
-## 31. Penerapan Konsep OOP
+## 🧠 31. Penerapan Konsep OOP
 
 ### 31.1 Abstract Class
 
@@ -2353,7 +2422,7 @@ Custom exception digunakan agar program memiliki pesan error yang sesuai dengan 
 
 ---
 
-## 32. Mengapa Aturan Bisnis Diterapkan di Setter?
+## 🛡️ 32. Mengapa Aturan Bisnis Diterapkan di Setter?
 
 Aturan bisnis diterapkan di setter agar data tidak bisa diubah sembarangan.
 
@@ -2397,7 +2466,7 @@ Manfaat validasi di setter:
 
 ---
 
-## 33. Mengapa Beberapa Method di `App.java` Static?
+## ⚙️ 33. Mengapa Beberapa Method di `App.java` Static?
 
 Pada Java, method `main()` selalu berbentuk seperti ini:
 
@@ -2423,7 +2492,7 @@ Pada program ini, method dibuat static agar kode lebih sederhana untuk pemula.
 
 ---
 
-## 34. Kesimpulan
+## ✅ 34. Kesimpulan
 
 Program Sistem Pengelolaan Koleksi Perpustakaan ini sudah memenuhi kebutuhan karena:
 
@@ -2457,3 +2526,28 @@ KoneksiDatabase
    ↓
 MySQL
 ```
+
+---
+
+## 🧾 Checklist Kesesuaian dengan Soal
+
+| Kebutuhan | Status |
+|---|---|
+| Program berbasis Java CLI | Terpenuhi |
+| Terhubung ke MySQL | Terpenuhi |
+| Memiliki fitur tambah data | Terpenuhi |
+| Memiliki fitur lihat data | Terpenuhi |
+| Memiliki fitur ubah data | Terpenuhi |
+| Memiliki fitur hapus data | Terpenuhi |
+| Menggunakan abstract class | Terpenuhi |
+| Menggunakan inheritance | Terpenuhi |
+| Menggunakan encapsulation | Terpenuhi |
+| Menggunakan interface | Terpenuhi |
+| Menggunakan custom exception | Terpenuhi |
+| Validasi aturan bisnis di setter | Terpenuhi |
+| Kode dipisah berdasarkan tanggung jawab | Terpenuhi |
+
+> [!IMPORTANT]
+> Inti rancangan program ini adalah membuat objek tidak bisa berisi data yang salah sejak awal. Karena itu, validasi ditempatkan di setter dan constructor, bukan hanya sebelum masuk database.
+
+---
