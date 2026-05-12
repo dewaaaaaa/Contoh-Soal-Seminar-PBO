@@ -2492,8 +2492,31 @@ Jika method tersebut tidak static, maka harus membuat objek `App` terlebih dahul
 Pada program ini, method dibuat static agar kode lebih sederhana untuk pemula.
 
 ---
+## 34. Cara Running
 
-## ✅ 34. Kesimpulan
+---
+
+### Tahap 1: Compile Semua File Java
+
+Pada tahap ini, seluruh file `.java` dalam project harus dikompilasi menjadi file `.class`.
+
+Pastikan:
+- Semua file Java sudah tersimpan dengan benar
+- File MySQL Connector (`mysql-connector-j-*.jar`) sudah berada di folder project
+
+Tahap ini bertujuan untuk memastikan seluruh kode Java siap dijalankan.
+
+---
+
+### Tahap 2: Menjalankan Program dengan Classpath
+
+Setelah proses compile berhasil, program dijalankan dengan menambahkan **classpath** agar Java dapat mengenali library MySQL Connector.
+
+```text
+
+java -cp ".;mysql-connector-j-9.7.0.jar" App
+```
+## ✅ 35. Kesimpulan
 
 Program Sistem Pengelolaan Koleksi Perpustakaan ini sudah memenuhi kebutuhan karena:
 
