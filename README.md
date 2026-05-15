@@ -2,6 +2,7 @@
 
 https://docs.google.com/document/d/132V1YRrJYhQIRpGMSYi1To0qPdAEz8gJokb_hBk6zFY/edit?usp=drivesdk
 
+soal : https://docs.google.com/document/d/1TXN0cZ5Zyll0wZRDPeob0Nt3U-m-j0Z2HY5rD0StFbA/edit?usp=drivesdk
 # 📚 Penjelasan Detail Program Sistem Pengelolaan Koleksi Perpustakaan
 
 **Java CLI • MySQL • CRUD • OOP • Custom Exception**
