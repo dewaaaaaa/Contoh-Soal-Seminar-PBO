@@ -1,5 +1,7 @@
 <div align="center">
 
+https://docs.google.com/document/d/132V1YRrJYhQIRpGMSYi1To0qPdAEz8gJokb_hBk6zFY/edit?usp=drivesdk
+
 # 📚 Penjelasan Detail Program Sistem Pengelolaan Koleksi Perpustakaan
 
 **Java CLI • MySQL • CRUD • OOP • Custom Exception**
